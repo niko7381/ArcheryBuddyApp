@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+       <ion-back-button defaultHref="physical-training-frontpage"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register new training</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="physicalTraining" (ngSubmit)="createTrainingReg()">
+    <ion-item id="open-modal">
+      <ion-icon icon="calendar-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Pick date</ion-label>
+      <ion-text slot="end">{{ formattedString }}</ion-text>
+    </ion-item>
+  
+    <ion-modal trigger="open-modal">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+          #datetime
+          presentation="date"
+          [value]="dateValue"
+          size="cover"
+          (ionChange)="dateChanged(datetime.value)"
+          showDefaultTimeLabel="false"
+          (ionCancel)="showPicker = false;">
+            <ion-buttons slot="buttons">
+              <ion-button (click)="close()">Dismiss</ion-button>
+              <ion-button (click)="select()" color="primary">Select</ion-button>
+            </ion-buttons>
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    
+    <ion-list>
+      <ion-item>
+        <ion-list-header>
+          <ion-label>Category</ion-label>
+        </ion-list-header>
+        <ion-select formControlName="category" alignment="center" animated="true" interface="popover" placeholder="Choose category">
+          <ion-select-option [value]="cardio">Cardio</ion-select-option>
+          <ion-select-option [value]="strength">Strength</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  
+    <ion-item>
+      <ion-input placeholder="Enter time here" type="number" formControlName="time">Time:</ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">What did you do in this training?</ion-label>
+      <ion-textarea placeholder="Enter more information here..." formControlName="sets"></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">How did it go?</ion-label>
+      <ion-textarea placeholder="Enter more information here..." formControlName="howDidItGo"></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Calories burned</ion-label>
+      <ion-textarea placeholder="Enter more information here..." formControlName="cals"></ion-textarea>
+    </ion-item>
+  
+    <ion-button size="large" [disabled]="!physicalTraining.valid" expand="block" class="btn" type="submit">Register training</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,49 @@
+.contextTitle {
+    margin-top: 5%;
+    text-align: center;
+    font-weight: bold;
+}
+
+ion-item {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+ion-input {
+    padding: auto;
+    margin-top: 1.5%
+}
+
+.title {
+    text-align: center;
+}
+
+.divider {
+    display: flex;
+    
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+}
+
+.line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #cccccc;
+    
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+  } 
+  
+.one-line {
+    &:before,
+    &:after {
+       background: #cccccc;
+    }
+  }
+

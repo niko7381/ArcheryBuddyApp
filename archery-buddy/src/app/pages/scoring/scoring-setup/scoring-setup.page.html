@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Scoring Setup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="scoringSetup">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          Scoring setup
+        </ion-label>
+      </ion-list-header>
+    
+      <ion-item>
+        <ion-label>Type of round</ion-label>
+        <ion-select formControlName="rounds" interface="popover">
+          <ion-select-option value="30">3 * 10</ion-select-option>
+          <ion-select-option value="60">6 * 6</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+  
+      <ion-item>
+        <ion-label>Target Type</ion-label>
+        <ion-select formControlName="targetType" interface="popover">
+          <ion-select-option value="40">40 CM</ion-select-option>
+          <ion-select-option value="60">60 CM</ion-select-option>
+          <ion-select-option value="80">80 CM</ion-select-option>
+          <ion-select-option value="120">120 CM</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Distance</ion-label>
+        <ion-select formControlName="distance"  interface="popover">
+          <ion-select-option value="15">15 M</ion-select-option>
+          <ion-select-option value="18">18 M</ion-select-option>
+          <ion-select-option value="30">30 M</ion-select-option>
+          <ion-select-option value="50">50 M</ion-select-option>
+          <ion-select-option value="70">70 M</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Notes</ion-label>
+        <ion-textarea formControlName="notes" placeholder="Enter more information here..."></ion-textarea>
+      </ion-item>
+  
+      <ion-button size="large" expand="block" [disabled]="!scoringSetup.valid" (click)="createScoringRound()" [routerLink]="['/scoring']">Begin scoring</ion-button>
+    </ion-list>
+  </form>
+</ion-content>

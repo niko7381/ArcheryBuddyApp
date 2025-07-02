@@ -1,0 +1,22 @@
+.tableInput {
+    font-weight: bolder;
+}
+
+.title {
+    font-size: large;
+    font-weight: bolder;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+    padding: 1%;
+}
+
+.ngx-datatable.bootstrap .datatable-header {
+    display: flex !important;
+    align-items: center!important;
+    text-justify: distribute;
+    text-align: justify;
+}
+.ngx-datatable .datatable-body .datatable-body-row > div {
+    align-items: center;;
+ }

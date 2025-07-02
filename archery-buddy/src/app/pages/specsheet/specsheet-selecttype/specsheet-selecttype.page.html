@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="specsheet-frontpage"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select type</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title class="content-title">Select what kind of bow you use</ion-title>
+  <ion-item>
+    <ion-label>Compound bow</ion-label>
+    <ion-checkbox [(ngModel)]="compound" value="compound" color="primary"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Recurve bow</ion-label>
+    <ion-checkbox [(ngModel)]="recurve" value="recurve"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>barbow</ion-label>
+    <ion-checkbox [(ngModel)]="barbow" value="barbow"></ion-checkbox>
+  </ion-item>
+
+  <ion-button expand="full" size="large" (click)="goTillConfigerPage()">Configure spec-sheet</ion-button>
+</ion-content>

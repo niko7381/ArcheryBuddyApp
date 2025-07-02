@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="credentials" (ngSubmit)="register()">
+
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+    </ion-item>
+    
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="displayName" placeholder="Username" formControlName="displayName"></ion-input>
+    </ion-item>
+
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" [disabled]="!credentials.valid" type="submit">Create new user</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

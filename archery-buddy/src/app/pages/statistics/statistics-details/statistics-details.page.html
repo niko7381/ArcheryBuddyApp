@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="statistics-frontpage"></ion-back-button>
+    </ion-buttons>
+    <ion-title>statisticsDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">Total</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="total"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">AveragePrArrow</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="averagePrArrow"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">AveragePrRound</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="averagePrRound"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">Arrows</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="arrows"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">TargetType</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="targetType"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">10's: </ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="tens"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">9's: </ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="nines"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">distance</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="distance"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="insert">
+          <ion-label position="floating">Notes</ion-label>
+          <ion-textarea placeholder="The sun was shining" [(ngModel)]="notes"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="full" (click)="updateScoring()">Update</ion-button>
+</ion-content>

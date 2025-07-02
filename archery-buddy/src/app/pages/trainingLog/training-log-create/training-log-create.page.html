@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="training-log-frontpage"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register new trainings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="trainingLog" (ngSubmit)="createTraining()">
+    <ion-item id="open-modal">
+      <ion-icon icon="calendar-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Pick date</ion-label>
+      <ion-text slot="end">{{ formattedString }}</ion-text>
+    </ion-item>
+  
+    <ion-modal trigger="open-modal">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+          #datetime
+          presentation="date"
+          [value]="dateValue"
+          size="cover"
+          (ionChange)="dateChanged(datetime.value)"
+          showDefaultTimeLabel="false"
+          (ionCancel)="showPicker = false;">
+            <ion-buttons slot="buttons">
+              <ion-button (click)="close()">Dismiss</ion-button>
+              <ion-button (click)="select()" color="primary">Select</ion-button>
+            </ion-buttons>
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  
+    <ion-item>
+      <ion-input placeholder=" 120" type="number" formControlName="arrowsShot">Arrows shot:</ion-input>
+    </ion-item>
+  
+  
+    <ion-item>
+      <ion-label position="floating">Weather conditions</ion-label>
+      <ion-textarea placeholder="The sun was shining" formControlName="weather"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Focus points</ion-label>
+      <ion-textarea placeholder="Shoulder down" formControlName="changes"></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Technical Changes that your working on</ion-label>
+      <ion-textarea placeholder="expansion and shot execution" formControlName="focusPoints"></ion-textarea>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">How did the training go</ion-label>
+      <ion-textarea placeholder="It all went greate" formControlName="howDidItGo"></ion-textarea>
+    </ion-item>
+  
+    <ion-button [disabled]="!trainingLog.valid" size="large" expand="block" class="btn" type="submit">Register training</ion-button>
+  </form>
+</ion-content>

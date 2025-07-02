@@ -1,0 +1,19 @@
+.button {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    margin-top: 2%;
+    font-weight: bold;
+}
+
+
+.invalid{
+    border-bottom: 1px solid rgba(255, 0, 0, 0.71);
+}
+
+.item-md.item-block .item-inner {
+    padding-right: 0px !important;
+    border-bottom: #fff !important;
+  }

@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Scoring</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="pointsOutdoor" *ngIf="outdoor">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-item lines="inset">
+              <ion-label position="floating">Arrow 1</ion-label>
+              <ion-input min="0" max="10" formControlName="arrow1" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item lines="inset">
+              <ion-label position="floating">Arrow 2</ion-label>
+              <ion-input min="0" max="10" formControlName="arrow2" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item lines="inset">
+              <ion-label position="floating">Arrow 3</ion-label>
+              <ion-input min="0" max="10" formControlName="arrow3" type="number"></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="inset">
+            <ion-label position="floating">Arrow 4</ion-label>
+            <ion-input min="0" max="10" formControlName="arrow4" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="inset">
+            <ion-label position="floating">Arrow 5</ion-label>
+            <ion-input min="0" max="10" formControlName="arrow5" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="inset">
+            <ion-label position="floating">Arrow 6</ion-label>
+            <ion-input min="0" max="10" formControlName="arrow6" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button [disabled]="!pointsOutdoor.valid" expand="block" size="large" (click)="scoring()">Save Round</ion-button>
+  </form>
+  
+  <form [formGroup]="pointsindoor" *ngIf="indoor">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="inset">
+            <ion-label position="floating">Arrow 1</ion-label>
+            <ion-input min="0" max="10" formControlName="arrow1" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item lines="inset">
+            <ion-label position="floating">Arrow 2</ion-label>
+              <ion-input min="0" max="10" formControlName="arrow2" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item lines="inset">
+              <ion-label position="floating">Arrow 3</ion-label>
+              <ion-input min="0" max="10" formControlName="arrow3" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-button [disabled]="!pointsindoor.valid" expand="block" size="large" (click)="scoring()">Save Round</ion-button>
+    </form>
+    
+    <ion-row>
+      <ion-col>
+        <ion-item lines="inset">
+          <ion-label position="floating">Round</ion-label>
+          <ion-input readonly [(ngModel)]="roundCount" type="number"></ion-input>
+        </ion-item>
+        <ion-item lines="inset">
+          <ion-label position="floating">Total</ion-label>
+          <ion-input readonly [(ngModel)]="total" type="number"></ion-input>
+        </ion-item>
+        <ion-item lines="inset">
+          <ion-label position="floating">10's</ion-label>
+          <ion-input readonly [(ngModel)]="tens" type="number"></ion-input>
+        </ion-item>
+        <ion-item lines="inset">
+          <ion-label position="floating">9's</ion-label>
+          <ion-input readonly [(ngModel)]="nines" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+  

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Statistics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ngx-datatable
+  class="bootstrap"
+  [rows]="scorings"
+  [rowHeight]="'auto'"
+  [headerHeight]="50"
+  [columnMode]="'force'" 
+  [loadingIndicator]="loadingIndicator"
+  [swapColumns]="swapColumns"
+  [columns]="columns"
+>
+
+  <ngx-datatable-column name="Total"></ngx-datatable-column>
+  <ngx-datatable-column name="Rounds"></ngx-datatable-column>
+  <ngx-datatable-column name="Actions" [sortable]="false">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+      <span>
+        <ion-button (click)="details(row.propertyId)" class="tablebuttons" size="small" color="primary">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="delete(row.propertyId)" class="tablebuttons" size="small" color="danger">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Change Email</ion-label>
+    <ion-input type="email" [(ngModel)]="email" autocomplete="off"></ion-input>
+    <ion-button (click)="updateEmail()">Update email</ion-button>
+  </ion-item>
+
+  <ion-item lines="none" class="test">
+    <ion-label position="stacked" class="title">Goals</ion-label>
+    <ion-textarea
+      border-color="none"
+      cols="20"
+      [(ngModel)]="goal"
+    >
+    </ion-textarea>
+  </ion-item>
+  <ion-button size="large" expand="block" class="btn" (click)="updateGoal()">Update Goal</ion-button>
+
+  <ion-button size="large" expand="block" class="btn" (click)="logout()">Log out</ion-button>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "ArcheryBuddy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

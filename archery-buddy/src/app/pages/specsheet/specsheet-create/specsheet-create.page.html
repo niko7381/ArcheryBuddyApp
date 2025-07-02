@@ -1,0 +1,547 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="specsheet-frontpage"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register new specsheet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" test="button" id="arrow-trigger">Arrow</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="arrowRest-trigger">Arrow rest</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="sight-trigger" *ngIf="compound">Sight</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="sightRecurve-trigger" *ngIf="recurve">Sight</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="strings-trigger" *ngIf="compound">Strings</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="stringsRecurveBarbow-trigger" *ngIf="barbow || recurve">Strings</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="stabs-trigger">Stabilizators</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="bow-trigger" *ngIf="compound">Bow configuration</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="outline" id="barbow-trigger" *ngIf="barbow || recurve">Bow configuration</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <ion-modal trigger="arrow-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="arrow">
+          <ion-title class="title">Arrow configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Model</ion-label>
+                  <ion-input formControlName="model" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Vanes model</ion-label>
+                  <ion-input formControlName="vanesModel" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Thickness</ion-label>
+                  <ion-input formControlName="thickness" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Vanes color</ion-label>
+                  <ion-input formControlName="vanesColor" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Length</ion-label>
+                  <ion-input formControlName="length" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Vanes size</ion-label>
+                  <ion-input formControlName="vanesSize" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Spine</ion-label>
+                  <ion-input formControlName="spine" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Nock model</ion-label>
+                  <ion-input formControlName="nockModel" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Weight</ion-label>
+                  <ion-input formControlName="weigth" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Nock size</ion-label>
+                  <ion-input formControlName="nockSize" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Point model</ion-label>
+                  <ion-input formControlName="pointModel" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Point Weight</ion-label>
+                  <ion-input formControlName="pointWeight" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Joules</ion-label>
+                  <ion-input formControlName="joules" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Speed</ion-label>
+                  <ion-input formControlName="speed" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-button expand="block" size="large" (click)="saveArrow()">Save arrow configuration</ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  
+  <ion-modal trigger="strings-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="stringsCompound">
+          <ion-title class="title">String configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Cords in your string</ion-label>
+                  <ion-input formControlName="cordsInString" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Cords in your cable</ion-label>
+                  <ion-input formControlName="cordsInCable" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Cords in your buscable</ion-label>
+                  <ion-input formControlName="cordsInBusCabel" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">String length</ion-label>
+                  <ion-input formControlName="stringLength" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save string configuration</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal trigger="stringsRecurveBarbow-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="stringRecurveBarbow">
+          <ion-title class="title">String configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Cords in your string</ion-label>
+                  <ion-input formControlName="cordsInString" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">String length</ion-label>
+                  <ion-input formControlName="stringLength" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save string configuration</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal trigger="stabs-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="stabs">
+          <ion-title class="title">stabilizator configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Side stabilizator size</ion-label>
+                  <ion-textarea formControlName="sidestabSize" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Side stabilizator length</ion-label>
+                  <ion-textarea formControlName="sidestabLength" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Side stabilizator weigth</ion-label>
+                  <ion-textarea formControlName="sidestabWeight" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">front stabilizator length</ion-label>
+                  <ion-textarea formControlName="frontstabLength" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">front stabilizator size</ion-label>
+                  <ion-textarea formControlName="frontstabSize" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">front stabilizator weigth</ion-label>
+                  <ion-textarea formControlName="frontstabWeight" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Other Configurations</ion-label>
+                  <ion-textarea formControlName="otherConfiguration" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save stabilizator configuration</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  
+  <ion-modal trigger="sight-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="sight">
+          <ion-title class="title">Sight configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Number of pins in your sight</ion-label>
+                  <ion-input formControlName="numberOfPins" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Distance your pins are dialed in at</ion-label>
+                  <ion-textarea formControlName="distance" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">model</ion-label>
+                  <ion-input formControlName="model" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Settings</ion-label>
+                  <ion-textarea formControlName="settings" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save sight configuration</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal trigger="sightRecurve-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="sightRecurve">
+          <ion-title class="title">Sight configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Distance your pins are dialed in at</ion-label>
+                  <ion-textarea formControlName="distance" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">model</ion-label>
+                  <ion-input formControlName="model" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Settings</ion-label>
+                  <ion-textarea formControlName="settings" type="text"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save sight configuration</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal trigger="arrowRest-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="arrowRest">
+          <ion-title class="title">ArrowRest configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <ion-item>
+                  <ion-label>Model</ion-label>
+                  <ion-textarea formControlName="model"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <ion-item>
+                  <ion-label>Settings</ion-label>
+                  <ion-textarea formControlName="settings"></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save arrowrest configuration</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  
+  
+  <ion-modal trigger="bow-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="compoundBowConfiguration">
+          <ion-title class="title">Bow configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Model</ion-label>
+                  <ion-input formControlName="model" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Axcel to Axcel</ion-label>
+                  <ion-input formControlName="axcelToAxcel" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Braice Height</ion-label>
+                  <ion-input formControlName="stringHeight" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Peep height</ion-label>
+                  <ion-input formControlName="peepheight" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Draw length</ion-label>
+                  <ion-input formControlName="drawLength" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Draw strength</ion-label>
+                  <ion-input formControlName="drawStrength" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save bowconfiguration</ion-button>
+      </ion-content>
+    </ng-template>  
+  </ion-modal>
+  
+  <ion-modal trigger="barbow-trigger">
+    <ng-template>
+      <ion-content>
+        <form [formGroup]="barbowRecurveBowConfiguration">
+          <ion-title class="title">Bow configuration</ion-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Model</ion-label>
+                  <ion-input formControlName="model" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">RizerModel</ion-label>
+                  <ion-input formControlName="rizerModel" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Legs model</ion-label>
+                  <ion-input formControlName="legsModel" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Pounds on fingers</ion-label>
+                  <ion-input formControlName="poundsOnFingers" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">Pounds on legs</ion-label>
+                  <ion-input formControlName="poundsOnLegs" type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="inset">
+                  <ion-label position="floating">drawLenght</ion-label>
+                  <ion-input formControlName="drawLenght" type="number"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+        <ion-button expand="block" size="large" (click)="savestringsCompound()">Save bowconfiguration</ion-button>
+      </ion-content>
+    </ng-template>  
+  </ion-modal>
+</ion-content>

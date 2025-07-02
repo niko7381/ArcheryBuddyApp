@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title">ArcheryBuddy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="credentials" (ngSubmit)="login()" autocomplete="off">
+    
+    <ion-title class="contextTitle">Sign in</ion-title>
+
+    <ion-item  lines="full" class="ion-margin-bottom">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" placeholder="Email" formControlName="email" autocomplete="new-password"></ion-input>
+    </ion-item>
+
+    <ion-item  lines="full" class="ion-margin-bottom">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" placeholder="Password" formControlName="password" autocomplete="new-password"></ion-input>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-align-self-center">
+          <ion-button expand="block" [disabled]="!credentials.valid" type="submit" color="primary">Login</ion-button>
+          <span class="divider line one-line">or</span>
+          <ion-button expand="block" type="button" (click)="onSignup()" fill="outline">Sign up</ion-button>
+          <ion-button expand="block" type="button" (click)="onResetPassword()" fill="outline">Reset password</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
