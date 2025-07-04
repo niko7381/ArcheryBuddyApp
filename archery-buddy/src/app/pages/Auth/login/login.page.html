@@ -9,15 +9,19 @@
     
     <ion-title class="contextTitle">Sign in</ion-title>
 
-    <ion-item  lines="full" class="ion-margin-bottom">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" placeholder="Email" formControlName="email" autocomplete="new-password"></ion-input>
-    </ion-item>
+    <div class="emailContainer">
+      <ion-item  lines="full" class="email">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" placeholder="Email" formControlName="email" autocomplete="new-password"></ion-input>
+      </ion-item>
+    </div>
 
-    <ion-item  lines="full" class="ion-margin-bottom">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" placeholder="Password" formControlName="password" autocomplete="new-password"></ion-input>
-    </ion-item>
+    <div class="passwordContainer">
+      <ion-item  lines="full" class="password">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" placeholder="Password" formControlName="password" autocomplete="new-password"></ion-input>
+      </ion-item>
+    </div>
 
     <ion-grid>
       <ion-row>
