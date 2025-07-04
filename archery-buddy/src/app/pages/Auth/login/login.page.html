@@ -22,10 +22,10 @@
     <ion-grid>
       <ion-row>
         <ion-col class="ion-align-self-center">
-          <ion-button expand="block" [disabled]="!credentials.valid" type="submit" color="primary">Login</ion-button>
+          <ion-button class="loginButton" expand="block" [disabled]="!credentials.valid" type="submit" color="primary">Login</ion-button>
           <span class="divider line one-line">or</span>
-          <ion-button expand="block" type="button" (click)="onSignup()" fill="outline">Sign up</ion-button>
-          <ion-button expand="block" type="button" (click)="onResetPassword()" fill="outline">Reset password</ion-button>
+          <ion-button class="loginButton" expand="block" type="button" (click)="onSignup()" fill="outline">Sign up</ion-button>
+          <ion-button class="loginButton" expand="block" type="button" (click)="onResetPassword()" fill="outline">Reset password</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

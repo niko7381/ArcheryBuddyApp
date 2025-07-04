@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 
 @Component({
@@ -17,20 +17,26 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) { }
 
-  // Gets email from HTML
+  ionViewWillEnter() {
+    this.menu.enable(false); // Disable menu on login
+  }
+
+  ionViewWillLeave() {
+    this.menu.enable(true);
+  }
+
   get email() {
     return this.credentials.get('email');
   }
 
-  // Gets password from HTML
   get password() {
     return this.credentials.get('password');
   }
 
-  // runs formgroup initialization before the page is accessed by the user
   ngOnInit() {
     this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
