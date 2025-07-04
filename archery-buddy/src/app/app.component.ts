@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -18,5 +19,6 @@ export class AppComponent {
     { title: 'Spec-Sheet', url: '/specsheet-frontpage' },
     { title: 'Settings', url: '/settings' }
   ];
+  
   constructor() {}
 }

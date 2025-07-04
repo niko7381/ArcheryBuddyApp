@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { Collection } from 'src/app/helpers/collections';
 import { ScoringService } from 'src/app/services/scoring/scoring.service';
 import { TrainingService } from 'src/app/services/training/training.service';
@@ -21,8 +22,25 @@ export class FrontpagePage implements OnInit {
 
   constructor(
     private trainingService: TrainingService,
-    private scoringService: ScoringService
+    private scoringService: ScoringService,
+    private menu: MenuController
   ) { }
+
+  openMenu() {
+    this.menu.open();
+  }
+
+  closeMenu() {
+    this.menu.close();
+  }
+
+  togleMenu() {
+    this.menu.toggle();
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(false);
+  }
 
   // runs before user access the page
   ngOnInit() {
