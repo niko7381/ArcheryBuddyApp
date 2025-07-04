@@ -2,12 +2,13 @@
   <ion-toolbar>
     <ion-title class="title">ArcheryBuddy</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <form [formGroup]="credentials" (ngSubmit)="login()" autocomplete="off">
+  <ion-card class="login-card">
+    <ion-card-title class="login-title">Login</ion-card-title>
+  
+    <ion-card-content class="login-content">
+      <form [formGroup]="credentials" (ngSubmit)="login()" autocomplete="off">
     
-    <ion-title class="contextTitle">Sign in</ion-title>
+    <ion-title class="login-title">Sign in</ion-title>
 
     <div class="emailContainer">
       <ion-item  lines="full" class="email">
@@ -26,7 +27,7 @@
     <ion-grid>
       <ion-row>
         <ion-col class="ion-align-self-center">
-          <ion-button class="loginButton" expand="block" [disabled]="!credentials.valid" type="submit" color="primary">Login</ion-button>
+          <ion-button class="loginButton" expand="block" [disabled]="!credentials.valid" type="submit" color="medium">Login</ion-button>
           <span class="divider line one-line">or</span>
           <ion-button class="loginButton" expand="block" type="button" (click)="onSignup()" fill="outline">Sign up</ion-button>
           <ion-button class="loginButton" expand="block" type="button" (click)="onResetPassword()" fill="outline">Reset password</ion-button>
@@ -34,4 +35,6 @@
       </ion-row>
     </ion-grid>
   </form>
-</ion-content>
+    </ion-card-content>
+  </ion-card>
+</ion-header>

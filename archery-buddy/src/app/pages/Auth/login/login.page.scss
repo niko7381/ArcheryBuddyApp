@@ -1,8 +1,24 @@
-.contextTitle {
-    margin-top: 5%;
-    margin-bottom: 3%;
-    text-align: center;
-    font-weight: bolder;
+ion-header {
+  height: 100%;
+  width: 100%;
+}
+
+.login-card {
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 50px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.login-title {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.host {
+  margin: 16px;
 }
 
 .emailContainer {
@@ -35,7 +51,7 @@
 .loginButton {
   margin-right: 20%;
   margin-left: 20%;
-  border-radius: 80%;
+  border-radius: 100px;
 }
 
 .divider {
@@ -66,4 +82,3 @@
        background: #cccccc;
     }
   }
-
