@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 
 @Component({
@@ -9,16 +9,23 @@ import { AuthService } from 'src/app/services/Auth/auth.service';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  // formgroup property
   credentials: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private authService: AuthService,
+    private menu: MenuController
   ) { }
 
-  // runs before page is accesseble for user
+  ionViewWillEnter() {
+    this.menu.enable(false); // Disable menu on login
+  }
+
+  ionViewWillLeave() {
+    this.menu.enable(true);
+  }
+
   ngOnInit() {
     this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -27,7 +34,6 @@ export class SignupPage implements OnInit {
     });
   }
 
-  //runs when register button is clicked
   async register() {
     const loading = await this.loadingController.create();
     await loading.present();

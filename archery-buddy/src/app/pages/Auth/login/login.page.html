@@ -3,8 +3,6 @@
     <ion-title class="title">ArcheryBuddy</ion-title>
   </ion-toolbar>
   <ion-card class="login-card">
-    <ion-card-title class="login-title">Login</ion-card-title>
-  
     <ion-card-content class="login-content">
       <form [formGroup]="credentials" (ngSubmit)="login()" autocomplete="off">
     
@@ -27,10 +25,10 @@
     <ion-grid>
       <ion-row>
         <ion-col class="ion-align-self-center">
-          <ion-button class="loginButton" expand="block" [disabled]="!credentials.valid" type="submit" color="medium">Login</ion-button>
+          <ion-button class="loginButton" shape="round" fill="outline" size="large" expand="block" type="submit" [disabled]="!credentials.valid" color="medium">Login</ion-button>
           <span class="divider line one-line">or</span>
-          <ion-button class="loginButton" expand="block" type="button" (click)="onSignup()" fill="outline">Sign up</ion-button>
-          <ion-button class="loginButton" expand="block" type="button" (click)="onResetPassword()" fill="outline">Reset password</ion-button>
+          <ion-button class="loginButton" shape="round" fill="outline" size="large" expand="block" type="button" (click)="onSignup()" fill="outline">Sign up</ion-button>
+          <ion-button class="loginButton" shape="round" fill="outline" size="large" expand="block" type="button" (click)="onResetPassword()" fill="outline">Reset password</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
