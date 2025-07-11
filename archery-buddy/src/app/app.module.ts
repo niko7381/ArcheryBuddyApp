@@ -25,20 +25,21 @@ import { PERSISTENCE } from '@angular/fire/compat/auth';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    provideStorage(() => getStorage())
   ],
 
   providers: [
     {
       provide: FIREBASE_OPTIONS, useValue: environment.firebase,
       useClass: IonicRouteStrategy
-    }, {
+    },
+    {
       provide: PERSISTENCE, useValue: 'session'
     },
     AuthService,
@@ -46,4 +47,5 @@ import { PERSISTENCE } from '@angular/fire/compat/auth';
   ],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}
