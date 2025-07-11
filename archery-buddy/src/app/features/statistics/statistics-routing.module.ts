@@ -7,6 +7,7 @@ import { StatisticsDetailsPage } from './pages/statistics-details/statistics-det
 const routes: Routes = [
   { path: 'statistics', component: StatisticsFrontpagePage },
   { path: 'statistics-details', component: StatisticsDetailsPage },
+  { path: 'statistics-details/:id', component: StatisticsDetailsPage },
 ];
 
 @NgModule({

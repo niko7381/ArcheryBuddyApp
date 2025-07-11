@@ -10,11 +10,11 @@ import { TrainingService } from 'src/app/services/training/training.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-  public allTrainings: [];
+  public allTrainings: any;
   public goal = '';
   public columns: any;
   public rows: any;
-  public scorings: [];
+  public scorings: any;
   public data: any;
   reorderable = true;
   loadingIndicator = true;
@@ -38,7 +38,7 @@ export class DashboardPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.menu.enable(true);
+    this.menu.enable(false);
   }
 
   // runs before user access the page
@@ -50,12 +50,16 @@ export class DashboardPage implements OnInit {
 
   // Gets all scorings
   public async getall() {
-    this.scorings = await this.scoringService.getAllScorings(Collection.scoring);
+    this.scorings = await this.scoringService.getAllScorings(Collection.scoring).then((res) => {
+      console.log('scorings' + res);
+    });
   }
 
   // Gets all physicaltrainings
   public async getallTrainings() {
-    this.allTrainings = await this.trainingService.getAllTrainings(Collection.physicalTraining);
+    this.allTrainings = await this.trainingService.getAllTrainings(Collection.physicalTraining).then((res) => {
+      console.log(res);
+    });
   }
 
   // gets users goal

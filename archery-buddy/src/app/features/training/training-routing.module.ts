@@ -18,7 +18,9 @@ const routes: Routes = [
     { path: 'scoring-setup', component: ScoringSetupPage },
     { path: 'traininglog-frontpage', component: TrainingLogFrontpagePage },
     { path: 'traininglog-create', component: TrainingLogCreatePage },
-    { path: 'traininglog-details', component: TrainingLogDetailsPage }
+    { path: 'traininglog-details', component: TrainingLogDetailsPage },
+    { path: 'physical-training-details/:id', component: PhysicalTrainingDetailsPage },
+    { path: 'training-log-details/:id', component: TrainingLogDetailsPage },
 ];
 
 @NgModule({

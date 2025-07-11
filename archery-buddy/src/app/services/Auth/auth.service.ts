@@ -7,9 +7,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Router } from '@angular/router';
 import IUser from 'src/app/types/user.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +16,9 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   public isAuthenticated$: Observable<boolean>;
   private usersCollection: AngularFirestoreCollection<IUser>;
+
+  private userIdSubject = new BehaviorSubject<string | null>(null);
+  private userId$ = this.userIdSubject.asObservable();
 
   constructor(
     private auth: AngularFireAuth,
@@ -28,6 +30,23 @@ export class AuthService {
     this.isAuthenticated$ = auth.user.pipe(
       map(user => !!user)
     );
+    const storedId = localStorage.getItem('userId');
+    if (storedId) {
+      this.userIdSubject.next(storedId);
+    }
+  }
+
+  setuserId(id: string) {
+    localStorage.setItem('userId', id);
+    this.userIdSubject.next(id);
+  }
+
+  getuserId(): string | void {
+    return this.userIdSubject.value;
+  }
+
+  clearUser() {
+    return this.userIdSubject.next(null);
   }
 
   // register new user
@@ -67,9 +86,10 @@ export class AuthService {
     }
   }
 
-  // logs user out
+  // logout user and clear localstorage
   logout() {
-    return this.auth.signOut();
+    this.clearUser();
+    this.router.navigate(['/auth/login']);
   }
 
   // updates email not quite working

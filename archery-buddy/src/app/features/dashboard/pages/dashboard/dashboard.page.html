@@ -1,27 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Frontpage</ion-title>
+    <ion-title class="title">Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item lines="none">
-    <ion-label class="title">Statistics - Scoring</ion-label>
+  <ion-card class="Statistic-card">
+    <ion-card-title>Statistics</ion-card-title>
+    <ion-card-content>
+      <ngx-datatable
+        class="bootstrap"
+        [rows]="scorings"
+        [rowHeight]="'auto'"
+        [headerHeight]="50"
+        [columnMode]="'force'" 
+        [loadingIndicator]="loadingIndicator"
+        [swapColumns]="swapColumns"
+        [columns]="columns"
+        [limit]="4"
+        >
+        <ngx-datatable-column name="total"></ngx-datatable-column>
+        <ngx-datatable-column name="Rounds"></ngx-datatable-column>
+        <ngx-datatable-column name="AveragePrRound"></ngx-datatable-column>
+      </ngx-datatable>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card >
+    <ion-card-title>Scoring</ion-card-title>
+    <ion-card-content>
+        <ngx-datatable
+        class="bootstrap"
+        [rows]="scorings"
+        [rowHeight]="'auto'"
+        [headerHeight]="50"
+        [columnMode]="'force'" 
+        [loadingIndicator]="loadingIndicator"
+        [swapColumns]="swapColumns"
+        [columns]="columns"
+        [limit]="4"
+        >
+        <ngx-datatable-column name="total"></ngx-datatable-column>
+        <ngx-datatable-column name="Rounds"></ngx-datatable-column>
+        <ngx-datatable-column name="AveragePrRound"></ngx-datatable-column>
+      </ngx-datatable>
+    </ion-card-content>
+  </ion-card>
+
+    <ion-item lines="none" class="test">
+    <ion-label position="stacked" class="title">Goals</ion-label>
+    <ion-textarea
+      border-color="none"
+      cols="20"
+      [(ngModel)]="goal"
+      readonly>
+    </ion-textarea>
   </ion-item>
+</ion-content>
 
-  <ngx-datatable
-    class="bootstrap"
-    [rows]="scorings"
-    [rowHeight]="'auto'"
-    [headerHeight]="50"
-    [columnMode]="'force'" 
-    [loadingIndicator]="loadingIndicator"
-    [swapColumns]="swapColumns"
-    [columns]="columns"
-    [limit]="4"
-  >
 
-  <ngx-datatable-column name="total"></ngx-datatable-column>
+  <!-- <ngx-datatable-column name="total"></ngx-datatable-column>
   <ngx-datatable-column name="Rounds"></ngx-datatable-column>
   <ngx-datatable-column name="AveragePrRound"></ngx-datatable-column>
 </ngx-datatable>
@@ -53,5 +91,4 @@
       [(ngModel)]="goal"
       readonly>
     </ion-textarea>
-  </ion-item>
-</ion-content>
+  </ion-item> -->

@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
 import firebase from 'firebase/compat';
 import { Collection } from 'src/app/helpers/collections';
 import IScoring from 'src/app/types/scoring.model';
+import { AuthService } from '../Auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,17 @@ export class ScoringService {
   targetType: string;
   distance: string;
   notes: string;
+  userId: any;
 
   constructor(
     private router: Router,
     private db: AngularFirestore,
     private alertController: AlertController,
     private auth: AngularFireAuth,
-  ) { }
+    private authService: AuthService
+  ) {
+    this.userId = this.authService.getuserId();
+  }
 
   // gets values from setup and assignes them to the props here
   public async getValuesfromSetup(obj) {
@@ -34,7 +39,7 @@ export class ScoringService {
 
   // create scoring in the DB
   public async createScoring(data: IScoring) {
-    const scoring = await this.db.collection(Collection.users).doc((await this.auth.currentUser).uid)
+    const scoring = await this.db.collection(Collection.users).doc(this.userId)
     .collection(Collection.scoring).add(data).then(async () => {
       const alert = await this.alertController.create({
         header: 'your score was saved',
@@ -50,7 +55,7 @@ export class ScoringService {
   // returns all scorings
   public getAllScorings(collection: string) {
     return new Promise<any>(async (resolve) => {
-      this.db.collection(Collection.users).doc((await this.auth.currentUser).uid)
+      this.db.collection(Collection.users).doc(this.userId)
       .collection(collection).valueChanges({ idField: 'propertyId'}).subscribe(data => resolve(data));
     });
   }

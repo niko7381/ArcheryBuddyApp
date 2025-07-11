@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 
 @Component({
-  selector: 'LoginPage',
+  selector: 'app-loginpage',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
-  // formgroup prop
   public credentials: FormGroup;
+
 
   constructor(
     private fb: FormBuilder,
@@ -21,20 +22,20 @@ export class LoginPage implements OnInit {
     private menu: MenuController
   ) { }
 
-  ionViewWillEnter() {
-    this.menu.enable(false); // Disable menu on login
-  }
-
-  ionViewWillLeave() {
-    this.menu.enable(true);
-  }
-
   get email() {
     return this.credentials.get('email');
   }
 
   get password() {
     return this.credentials.get('password');
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(false); // Disable menu on login
+  }
+
+  ionViewWillLeave() {
+    this.menu.enable(true);
   }
 
   ngOnInit() {
@@ -44,7 +45,6 @@ export class LoginPage implements OnInit {
     });
   }
 
-  // Login function runs when ever the login button is pushed
   async login() {
     // runs the login function in authService and create loading before
     const loading = await this.loadingController.create();
@@ -55,6 +55,7 @@ export class LoginPage implements OnInit {
 
     // If user returns something navigate to frontpage else say auth failed
     if (user) {
+      this.authService.setuserId(user);
       this.router.navigateByUrl('/dashboard/dashboard', { replaceUrl: true });
     } else {
       this.authService.showAlert('Login failed', 'Please try again!');
