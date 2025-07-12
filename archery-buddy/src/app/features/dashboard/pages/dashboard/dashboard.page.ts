@@ -35,9 +35,9 @@ export class DashboardPage implements OnInit {
     this.menu.toggle();
   }
 
-  ionViewWillEnter() {
-    this.menu.enable(false);
-  }
+  // ionViewWillEnter() {
+  //   this.menu.enable(false);
+  // }
 
   // runs before user access the page
   ngOnInit() {

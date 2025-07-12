@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from './services/Auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,12 @@ export class AppComponent {
     { title: 'Spec-Sheet', url: '/specsheet-frontpage' },
     { title: 'Settings', url: '/settings' }
   ];
-  
-  constructor() {}
+
+  constructor(
+    private authService: AuthService
+  ) {}
+
+  logout() {
+    this.authService.logout();
+  }
 }
