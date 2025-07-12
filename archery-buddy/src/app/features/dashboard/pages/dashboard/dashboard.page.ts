@@ -12,10 +12,8 @@ import { TrainingService } from 'src/app/services/training/training.service';
 export class DashboardPage implements OnInit {
   public allTrainings: any;
   public goal = '';
-  public columns: any;
-  public rows: any;
-  public scorings: any;
-  public data: any;
+  public scorings: any[] = [];
+
   reorderable = true;
   loadingIndicator = true;
 
@@ -50,21 +48,21 @@ export class DashboardPage implements OnInit {
 
   // Gets all scorings
   public async getall() {
-    this.scorings = await this.scoringService.getAllScorings(Collection.scoring).then((res) => {
-      console.log('scorings' + res);
+    const data = this.scoringService.getAllScorings(Collection.scoring).then((res) => {
+      this.scorings = res;
     });
   }
 
   // Gets all physicaltrainings
   public async getallTrainings() {
-    this.allTrainings = await this.trainingService.getAllTrainings(Collection.physicalTraining).then((res) => {
-      console.log(res);
+    const data = await this.trainingService.getAllTrainings(Collection.physicalTraining).then((res) => {
+      this.allTrainings = res;
     });
   }
 
   // gets users goal
   public async getGoal() {
-    await this.trainingService.getGoal().then((res) => {
+    const data = await this.trainingService.getGoal().then((res) => {
       this.goal = res.goal;
     });
   }

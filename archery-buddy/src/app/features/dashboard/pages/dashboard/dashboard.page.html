@@ -6,11 +6,11 @@
 
 <ion-content>
   <ion-card class="Statistic-card">
-    <ion-card-title>Statistics</ion-card-title>
+    <ion-card-title class="card-titles">Statistics</ion-card-title>
     <ion-card-content>
       <ngx-datatable
         class="bootstrap"
-        [rows]="scorings"
+        [rows]="allTrainings"
         [rowHeight]="'auto'"
         [headerHeight]="50"
         [columnMode]="'force'" 
@@ -19,15 +19,15 @@
         [columns]="columns"
         [limit]="4"
         >
-        <ngx-datatable-column name="total"></ngx-datatable-column>
-        <ngx-datatable-column name="Rounds"></ngx-datatable-column>
-        <ngx-datatable-column name="AveragePrRound"></ngx-datatable-column>
+        <ngx-datatable-column class="tableInput" name="Date"></ngx-datatable-column>
+        <ngx-datatable-column class="tableInput" name="Category"></ngx-datatable-column>
+        <ngx-datatable-column class="tableInput" name="Time"></ngx-datatable-column>
       </ngx-datatable>
     </ion-card-content>
   </ion-card>
 
-  <ion-card >
-    <ion-card-title>Scoring</ion-card-title>
+  <ion-card class="Scoring-card">
+    <ion-card-title class="card-titles">Scoring</ion-card-title>
     <ion-card-content>
         <ngx-datatable
         class="bootstrap"
@@ -47,15 +47,17 @@
     </ion-card-content>
   </ion-card>
 
-    <ion-item lines="none" class="test">
-    <ion-label position="stacked" class="title">Goals</ion-label>
-    <ion-textarea
-      border-color="none"
-      cols="20"
-      [(ngModel)]="goal"
-      readonly>
-    </ion-textarea>
-  </ion-item>
+  <ion-card>
+    <ion-card-title class="card-titles">Motivational Goal</ion-card-title>
+    <ion-card-content>
+      <ion-textarea
+        border-color="none"
+        cols="20"
+        [(ngModel)]="goal"
+        readonly>
+      </ion-textarea>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 
