@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'traininglog-create', component: TrainingLogCreatePage },
     { path: 'traininglog-details', component: TrainingLogDetailsPage },
     { path: 'physical-training-details/:id', component: PhysicalTrainingDetailsPage },
-    { path: 'training-log-details/:id', component: TrainingLogDetailsPage },
+    { path: 'training-log-details/:id', component: TrainingLogDetailsPage }
 ];
 
 @NgModule({

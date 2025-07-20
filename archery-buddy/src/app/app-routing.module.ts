@@ -49,7 +49,7 @@ const routes: Routes = [
       return m.TrainingModule;
     }
   },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' }
+  // { path: '', redirectTo: 'auth/login', pathMatch: 'full' }
 ];
 
 @NgModule({

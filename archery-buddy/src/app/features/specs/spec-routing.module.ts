@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -11,8 +10,7 @@ const routes: Routes = [
   { path: 'spec-create', component: SpecsheetCreatePage },
   { path: 'spec-details', component: SpecsheetDetailsPage },
   { path: 'spec-frontpage', component: SpecsheetFrontpagePage },
-  { path: 'spec-select', component: SpecsheetSelecttypePage },
-  { path: '', redirectTo: 'auth/login'}
+  { path: 'spec-select', component: SpecsheetSelecttypePage }
 ];
 
 @NgModule({

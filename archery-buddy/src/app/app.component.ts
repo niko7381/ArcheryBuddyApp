@@ -12,13 +12,13 @@ export class AppComponent {
   displayName: string;
 
   public appPages = [
-    { title: 'Home', url: '/frontpage' },
-    { title: 'Begin-Scoring', url: '/scoring-setup' },
-    { title: 'Training-Log', url: '/training-log-frontpage' },
-    { title: 'Physical-Training', url: '/physical-training-frontpage' },
-    { title: 'Statistics', url: '/statistics-frontpage' },
-    { title: 'Spec-Sheet', url: '/specsheet-frontpage' },
-    { title: 'Settings', url: '/settings' }
+    { title: 'Dashboard', url: '/dashboard/dashboard' },
+    { title: 'Scoring', url: '/training/scoring' },
+    { title: 'Training Log', url: '/training/traininglog-frontpage' },
+    { title: 'Physical Training', url: '/training/physical-training-frontpage' },
+    { title: 'Statistics', url: '/statistics/statistics' },
+    { title: 'Specifications Sheets', url: '/specs/spec-frontpage' },
+    { title: 'Settings', url: '/settings/settings' }
   ];
 
   constructor(
