@@ -30,7 +30,6 @@ export class SettingsPage implements OnInit {
   // logs user out
   public logout() {
     this.authService.logout();
-    location.reload();
   }
 
   // updates user email

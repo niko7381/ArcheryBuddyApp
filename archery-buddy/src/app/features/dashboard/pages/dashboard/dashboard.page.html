@@ -8,47 +8,51 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="Statistic-card">
-    <ion-card-title class="card-titles">Statistics</ion-card-title>
+  
+  <ion-card class="Scoring-card">
+    <ion-card-header>
+      <ion-card-title class="card-titles">Scoring</ion-card-title>
+      <ion-button>+</ion-button>
+    </ion-card-header>
     <ion-card-content>
       <ngx-datatable
-        class="bootstrap"
-        [rows]="allTrainings"
-        [rowHeight]="'auto'"
-        [headerHeight]="50"
-        [columnMode]="'force'" 
-        [loadingIndicator]="loadingIndicator"
-        [swapColumns]="swapColumns"
-        [columns]="columns"
-        [limit]="4"
-        >
-        <ngx-datatable-column class="tableInput" name="Date"></ngx-datatable-column>
-        <ngx-datatable-column class="tableInput" name="Category"></ngx-datatable-column>
-        <ngx-datatable-column class="tableInput" name="Time"></ngx-datatable-column>
-      </ngx-datatable>
-    </ion-card-content>
-  </ion-card>
+      class="bootstrap"
+      [rows]="scorings"
+      [rowHeight]="'auto'"
+      [headerHeight]="50"
+      [columnMode]="'force'" 
+      [loadingIndicator]="loadingIndicator"
+      [swapColumns]="swapColumns"
+      [columns]="columns"
+      [limit]="4"
+      >
+      <ngx-datatable-column name="total"></ngx-datatable-column>
+      <ngx-datatable-column name="Rounds"></ngx-datatable-column>
+      <ngx-datatable-column name="AveragePrRound"></ngx-datatable-column>
+    </ngx-datatable>
+  </ion-card-content>
+</ion-card>
 
-  <ion-card class="Scoring-card">
-    <ion-card-title class="card-titles">Scoring</ion-card-title>
-    <ion-card-content>
-        <ngx-datatable
-        class="bootstrap"
-        [rows]="scorings"
-        [rowHeight]="'auto'"
-        [headerHeight]="50"
-        [columnMode]="'force'" 
-        [loadingIndicator]="loadingIndicator"
-        [swapColumns]="swapColumns"
-        [columns]="columns"
-        [limit]="4"
-        >
-        <ngx-datatable-column name="total"></ngx-datatable-column>
-        <ngx-datatable-column name="Rounds"></ngx-datatable-column>
-        <ngx-datatable-column name="AveragePrRound"></ngx-datatable-column>
-      </ngx-datatable>
-    </ion-card-content>
-  </ion-card>
+<ion-card class="Statistic-card">
+  <ion-card-title class="card-titles">Statistics</ion-card-title>
+  <ion-card-content>
+    <ngx-datatable
+      class="bootstrap"
+      [rows]="allTrainings"
+      [rowHeight]="'auto'"
+      [headerHeight]="50"
+      [columnMode]="'force'" 
+      [loadingIndicator]="loadingIndicator"
+      [swapColumns]="swapColumns"
+      [columns]="columns"
+      [limit]="4"
+      >
+      <ngx-datatable-column class="tableInput" name="Date"></ngx-datatable-column>
+      <ngx-datatable-column class="tableInput" name="Category"></ngx-datatable-column>
+      <ngx-datatable-column class="tableInput" name="Time"></ngx-datatable-column>
+    </ngx-datatable>
+  </ion-card-content>
+</ion-card>
 
   <ion-card>
     <ion-card-title class="card-titles">Motivational Goal</ion-card-title>
