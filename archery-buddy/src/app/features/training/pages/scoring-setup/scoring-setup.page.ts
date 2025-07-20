@@ -8,6 +8,7 @@ import { ScoringService } from 'src/app/services/scoring/scoring.service';
   templateUrl: './scoring-setup.page.html',
   styleUrls: ['./scoring-setup.page.scss'],
 })
+
 export class ScoringSetupPage implements OnInit {
   // propertys to get values from html
 

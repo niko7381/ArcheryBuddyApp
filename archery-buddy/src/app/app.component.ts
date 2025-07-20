@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
 import { AuthService } from './services/Auth/auth.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Dashboard', url: '/dashboard/dashboard' },
-    { title: 'Scoring', url: '/training/scoring' },
+    { title: 'Scoring', url: '/training/scoring-setup' },
     { title: 'Training Log', url: '/training/traininglog-frontpage' },
     { title: 'Physical Training', url: '/training/physical-training-frontpage' },
     { title: 'Statistics', url: '/statistics/statistics' },
